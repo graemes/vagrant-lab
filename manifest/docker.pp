@@ -24,4 +24,4 @@ include epl
 include yum
 
 # Establish ordering
-Class['disablethp'] -> Class['interfering_services'] -> Class['ntp'] -> Class['etchosts'] -> Class['epl'] -> Class['yum'] -> Class['vim'] -> Class['htop'] -> Class['docker-io'] -> Class['docker-io-vim'] -> Class['docker-io-logrotate']
+Class['disablethp'] -> Class['interfering_services'] -> Class['ntp'] -> Class['etchosts'] -> Class['epl'] -> Class['yum']
