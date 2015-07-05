@@ -17,6 +17,11 @@ class { 'etchosts':
   ownhostname => 'docker.lab'
 }
 
+# add epl repo
+include epl
+
+# all yum commands
+include yum
 
 # Establish ordering
-Class['disablethp'] -> Class['interfering_services'] -> Class['ntp'] -> Class['etchosts']
+Class['disablethp'] -> Class['interfering_services'] -> Class['ntp'] -> Class['etchosts'] -> Class['epl'] -> Class['yum'] -> Class['vim'] -> Class['htop'] -> Class['docker-io'] -> Class['docker-io-vim'] -> Class['docker-io-logrotate']
