@@ -21,7 +21,12 @@ class { 'etchosts':
 include epl
 
 # all yum commands
-include yum
+#include yum
+
+# extra software packages
+include packages
 
 # Establish ordering
-Class['disablethp'] -> Class['interfering_services'] -> Class['ntp'] -> Class['etchosts'] -> Class['epl'] -> Class['yum']
+Class['disablethp'] -> Class['interfering_services'] -> Class['ntp'] -> Class['etchosts'] -> Class['epl'] -> Class['packages']
+
+

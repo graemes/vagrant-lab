@@ -14,6 +14,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	vb.memory = 8192      
 	vb.cpus = 2
     end
+    docker.vm.provider "vmware_fusion" do |vb|
+      vb.vmx["memsize"] = "8192"
+      vb.vmx["numvcpus"] = "2"
+    end
+
     
 
     docker.vm.provision "puppet" do |puppet|
