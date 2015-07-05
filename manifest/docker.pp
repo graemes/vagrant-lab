@@ -1,4 +1,4 @@
-# VM-Configuration of an ambari agent that is monitored by the ambari server.
+# VM-Configuration of the docker server. 
 
 # Turn off interfering services
 include interfering_services
@@ -14,15 +14,9 @@ resources { 'host': purge => true }
 
 # Ensure that servers can find themselves even in absence of dns
 class { 'etchosts':
-  ownhostname => 'one.cluster'
+  ownhostname => 'docker.lab'
 }
 
-
-class { 'ambari_agent':
-  serverhostname => "one.cluster",
-  ownhostname    => "two.cluster"
-}
 
 # Establish ordering
-Class['disablethp'] -> Class['interfering_services'] -> Class['ntp'] -> Class['etchosts'] -> Class['ambari_agent']
-
+Class['disablethp'] -> Class['interfering_services'] -> Class['ntp'] -> Class['etchosts']
