@@ -4,6 +4,10 @@ package { "htop": ensure => "installed" }
 package { "docker-io": ensure => "installed" } 
 package { "docker-io-logrotate": ensure => "installed" } 
 package { "docker-io-vim": ensure => "installed" } 
-  }
+
+service { "docker": ensure => "running" }
+
+
+}
 
   
