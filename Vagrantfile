@@ -2,6 +2,9 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+	if Vagrant.has_plugin?("vagrant-cachier")
+		config.cache.scope = :machine
+	end 
 
   config.vm.box = "thinktainer/centos-6_6-orajdk7-puppet"
   config.vm.box_url = "https://atlas.hashicorp.com/thinktainer/boxes/centos-6_6-orajdk7-puppet"
